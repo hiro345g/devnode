@@ -1,0 +1,30 @@
+{
+  "name": "devnode",
+  "dockerComposeFile": [
+    "../docker-compose.yml"
+  ],
+  "service": "devnode-node",
+  "workspaceFolder": "/home/node",
+  "shutdownAction": "none",
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "terminal.integrated.defaultProfile.linux": "bash",
+        "editor.formatOnSave": true,
+        "editor.tabSize": 4,
+        "editor.detectIndentation": false,
+        "editor.insertSpaces": true,
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+      },
+      "extensions": [
+        "esbenp.prettier-vscode",
+        "oderwat.indent-rainbow",
+        "eamodio.gitlens",
+        "donjayamanne.githistory",
+        "mhutchie.git-graph",
+        "ms-azuretools.vscode-docker",
+        "christian-kohler.npm-intellisense"
+      ]
+    }
+  }
+}

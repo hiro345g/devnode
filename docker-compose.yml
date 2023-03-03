@@ -1,0 +1,27 @@
+name: devnode
+services:
+  devnode-node:
+    image: devnode-node:1.0
+    container_name: devnode-node
+    hostname: devnode-node
+    init: true
+    tty: true
+    networks:
+      devnode-net:
+    volumes:
+      - repo-data:/home/node/repo
+      - vscode-server-extensions:/home/node/.vscode-server/extensions
+      - ${DEV_DIR}:/share/dev
+    environment:
+      EDITOR: code
+      NPM_CONFIG_PREFIX: /home/node/repo/.npm-global
+
+volumes:
+  repo-data:
+    name: devnode-dev-node-repo-data
+  vscode-server-extensions:
+    name: devnode-node-vscode-server-extensions
+
+networks:
+  devnode-net:
+    name: devnode-net
