@@ -11,14 +11,16 @@ services:
     volumes:
       - repo-data:/home/node/repo
       - vscode-server-extensions:/home/node/.vscode-server/extensions
-      - ${DEV_DIR}:/share/dev
+      - type: bind
+        source: ${SHARE_DIR:-./workspace_share}
+        target: /share
     environment:
       EDITOR: code
       NPM_CONFIG_PREFIX: /home/node/repo/.npm-global
 
 volumes:
   repo-data:
-    name: devnode-dev-node-repo-data
+    name: devnode-node-repo-data
   vscode-server-extensions:
     name: devnode-node-vscode-server-extensions
 

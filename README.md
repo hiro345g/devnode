@@ -89,15 +89,18 @@ devnode/
 ├── .devcontainer/ ... devnode を Dev Container として利用するときに使う
 │   ├── devcontainer.json
 │   └── docker-compose.yml
-├── LICENSE ... ライセンス
-├── README.md  ... このファイル
 ├── build_devcon/ ... devnode の Docker イメージをビルドするときに使う
 │   ├── .devcontainer/
 │   │   ├── Dockerfile
 │   │   └── devcontainer.json
 │   ├── build_npmexec.sh ... devnode の Docker イメージをビルドするためのスクリプト npm exec 版
 │   └── build.sh ... devnode の Docker イメージをビルドするためのスクリプト
+├── workspace_share/ ... Docker ホストとコンテナーとでファイルを共有するためのディレクトリー
+│   └── .gitkeep
+├── .gitignore
 ├── docker-compose.yml ... devnode を利用するときに使う
+├── LICENSE ... ライセンス
+├── README.md  ... このファイル
 └── sample.env  ... .env ファイルのサンプル
 ```
 
@@ -200,16 +203,18 @@ sh ./builde_devcon/build_npmexec.sh
 
 ## 環境変数
 
-コンテナーと Docker ホストとでファイルを手軽に参照したり転送したりできるように、`devnode:/share/dev` をバインドマウントするようにしています。
-Docker ホスト側で使用するディレクトリーを `DEV_DIR` で指定します。
+コンテナーと Docker ホストとでファイルを手軽に参照したり転送したりできるように、`devnode:/share` をバインドマウントするようにしています。
+Docker ホスト側で使用するディレクトリーを `SHARE_DIR` で指定します。
 Docker ホスト側に存在するものを指定してください。
+ここでは、あらかじめ `workspace_share` ディレクトリーを用意してあり、それを使っています。
 
-次の例では `dev` ディレクトリーを作成して、それを使うようにしています。
+これを変更することができるように、環境変数 `SHARE_DIR` を用意してあります。
+次の例では `${DEVNODE_DIR}/share` ディレクトリーを作成して、それを使うようにしています。
 
 ```sh
 cd ${DEVNODE_DIR}
-mkdir dev
-echo 'DEV_DIR=./dev' > .env
+mkdir share
+echo 'SHARE_DIR=./share' > .env
 ```
 
 `sample.env` も参考にしてください。
