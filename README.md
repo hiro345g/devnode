@@ -7,6 +7,8 @@ Dev Container については、開発が <https://github.com/devcontainers> で
 
 ここで用意している `docker-compose.yml` では、開発するアプリの Git リモートリポジトリを devnode コンテナーの `/home/node/repo` （つまり、`devnode:/home/node/repo`）へクローンして開発することを想定しています。
 
+また、`devnode:/home/node/repo` は Docker ボリュームの devnode-node-repo-data をマウントして使うようになっています。他にも devnode-node-vscode-server-extensions という Docker ボリュームを使うようになっています。
+
 ## 必要なもの
 
 devnode を動作をさせるには、Docker、Docker Compose、Visual Studio Code (VS Code) 、Dev Containers 拡張機能が必要です。
@@ -135,7 +137,7 @@ VS Code の Docker 拡張機能画面で devnode-node コンテナーのコン�
 
 ### devcontainer.json を使った Dev Container として起動
 
-先に「ビルド」を参照して Docker イメージを作成してください。また、「環境変数」を参考にして `.env` ファイルを用意してください。
+先に「ビルド」を参照して Docker イメージを作成してください。また、必要なら「環境変数」を参考にして `.env` ファイルを用意してください。
 
 VS Code を起動してから、F1 キーを入力して VS Code のコマンドパレットを表示してます。入力欄へ「dev containers open」などと入力すると「Dev Containers: Open Folder in Container...」が選択肢に表示されます。これをクリックすると、フォルダーを選択する画面になるので `${DEVNODE_DIR}` を指定して開きます。
 
