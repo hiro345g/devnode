@@ -3,9 +3,9 @@
 これは <https://github.com/devcontainers/images/tree/main/src/typescript-node> で公開されている mcr.microsoft.com/devcontainers/typescript-node:18-bullseye の Docker イメージをベースとする Node.js 用の開発環境を Dev Container 環境として用意したものです。
 <https://hub.docker.com/r/hiro345g/devnode-node> で公開している Docker イメージをビルドするためのファイルも含まれています。
 
-Dev Container については、開発が <https://github.com/devcontainers> でされていますので、こちらをご覧ください。
+Dev Container については、開発が <https://github.com/devcontainers> でされていますので、そちらをご覧ください。
 
-ここで用意している `docker-compose.yml` では、開発するアプリの Git リモートリポジトリを devnode コンテナーの `/home/node/repo` （つまり、`devnode:/home/node/repo`）へクローンして開発することを想定しています。
+ここで用意している `docker-compose.yml` では、開発するアプリの Git リモートリポジトリを devnode-node コンテナーの `/home/node/repo` （つまり、`devnode:/home/node/repo`）へクローンして開発することを想定しています。
 
 また、`devnode:/home/node/repo` は Docker ボリュームの devnode-node-repo-data をマウントして使うようになっています。他にも devnode-node-vscode-server-extensions という Docker ボリュームを使うようになっています。
 
