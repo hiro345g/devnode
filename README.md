@@ -150,6 +150,10 @@ devnode コンテナーでは Docker ホストのファイルを間違えて操�
 慣れないうちは、`${DEVNODE_DIR}` が見える VS Code の画面もあった方がわかりやすいと思います。
 こちらは、慣れてから使うようにすると良いでしょう。
 
+### コンテナーの停止、削除の仕方
+
+VS Code の Docker 拡張機能の画面で、CONTAINERS の欄に表示されている devnode-desktop のコンテキストメニューから `Compose Sotp` でコンテナー停止、`Compose Down` でコンテナー削除ができます。
+
 ## ビルド
 
 最初にビルドが必要です。
